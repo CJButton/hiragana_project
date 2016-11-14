@@ -28,7 +28,7 @@ This project will also include:
 
 This application will be a single screen. At the top there will be a dropdown to go to a specific chapter (grouping of characters) to study, rather than studying in a specific order. The main screen will display one of two things: 1) The basic information on the characters' reading, pronunciation, and romaji, or 2) the quiz section, where the user will be asked to type the appropriate answer to the question. To the right side of the
 
-![View Character Information](images/hiraganza_meaning.png)
+![View Character Information](images/hiragana_meaning.png)
 
 ![View Quiz](images/hiragana_quiz.png)
 
