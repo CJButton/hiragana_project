@@ -5,7 +5,7 @@ We're gonna Hiragana!
 
 **Background**
 
-"Let's learn hiragana" is an application to help people learn the very basics of the Japanese writing system. The entire system compromises three writing scrips:
+"We're gonna hiragana" is an application to help people learn the very basics of the Japanese writing system. The entire system compromises three writing scrips:
 
 - katakana (カタカナ), which is generally used for words/names of foreign origin. There are 46 in total.
 - kanji (漢字), which are characters borrowed from China over a thousand years ago. Today, there are roughly 2000 official characters one needs to learn to be considered fluent.
