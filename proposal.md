@@ -37,26 +37,24 @@ This application will be a single screen. At the top there will be a dropdown to
 This project will be implemented with the following technologies:
 
 Vanilla JavaScript and jquery for overall structure and game logic,
-Easel.js with HTML5 Canvas for DOM manipulation and rendering,
+React with HTML5 Canvas for DOM manipulation and rendering,
 Webpack to bundle and serve up the various scripts.
 
 Besides these, we will need a few scripts.
 
-quizBody.js: This script handles logic for creating and updating the Easel.js elements and rendering them to the DOM.
+quizBody.js: This script handles logic for creating and updating elements and rendering them to the DOM.
 
 quiz.js: This script will handle the user's input and check to see if it is the correct answer. Then displaying the correct one if they are mistaken. It should also allow the user to choose a specific group of characters to practice with.
 
 Implementation Timeline:
 
-Day 1: Setup Node modules and webpack, as well as Easel.js. Create a webpack.config.js and package.json. Write the basic entry file and the skeleton for the two scripts. Study Easel.js.
-Goals for the day:
+Day 1: Setup Node modules and webpack. Create a webpack.config.js and package.json. Write the basic entry file and the skeleton for the two scripts.
 
 - Get a green bundle with webpack.
-- Understand Easel.js sufficiently to render a basic object to the Canvas.
 
-Day 2: Study Easel.js's API and be able to create several quiz skeletons. Create at least one basic quiz. This quiz should be able to display the basic information about the characters, and then, on the following pages, ask the user several questions to test their knowledge. One obstacle that we might run into is the user's browser not being able to display Japanese characters. We might be able to work around this using pictures, or perhaps another method.
+Day 2: Create at least one basic quiz. This quiz should be able to display the basic information about the characters, and then, on the following pages, ask the user several questions to test their knowledge. One obstacle that we might run into is the user's browser not being able to display Japanese characters. We might be able to work around this using pictures, or perhaps another method.
 
-- Create at least a basic quiz using Easel.js
+- Create at least a basic quiz using React
 - Figure out if accepting/displaying Japanese characters will be an issue for users
 
 Day 3: Complete the rest of the quizzes for each chapter/group of characters. Make sure that they can be linked together smoothly. Add pictures if possible, so that they user can start linking words with objects, and won't translate in their head. Consider creating a results page after each grouping is completed, telling the user how they have done.

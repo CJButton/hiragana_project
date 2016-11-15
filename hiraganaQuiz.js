@@ -1,13 +1,24 @@
 
 
 
-// const Quiz = require("./lib/quiz");
-// const QuizView = require("./lib/QuizView");
-//
-// document.addEventListener("DOMContentLoaded", function(){
-//
-//
-// });
+const Quiz = require("./lib/quiz");
+const QuizView = require("./lib/QuizView");
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  new QuizView().start();
+
+});
+
+
+
+
+
+
+
+
+
+
 //canvasEl.style.backgroundColor = "#B5781B";
 
 
