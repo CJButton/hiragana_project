@@ -1,0 +1,62 @@
+
+
+
+/*.k-characters {
+
+
+}
+
+.mainBox-input {
+  border-style: none;
+  height: 30px;
+  font-size: 24px;
+  text-align: center;
+  border-radius:10px;
+}
+.mainBox-input:focus{
+    outline-color: #73AD21;
+}
+
+.divfix {
+  position: absolute;
+  margin-left: 230px;
+  margin-bottom: 0px;
+  bottom: 135px;
+}*/
+
+
+
+.indexTable {
+  color: black;
+  background-color: none;
+  width: 740px;
+  height: 350px;
+}
+
+.index-th-elements th {
+  font-size: 40px;
+  color: white;
+}
+
+.index-body {
+}
+
+.dpnone {
+  display: none;
+}
+
+.mainBox {
+  margin-top: 75px;
+  width: 700px;
+  height: 400px;
+  margin-left: 300px;
+  border-radius: 25px;
+  border: 1px solid #73AD21;
+  padding: 20px;
+  background-image: url("http://res.cloudinary.com/ddbfkqb9m/image/upload/v1479193218/manga%20covers/shodo.jpg");
+}
+/*
+.mainBody {
+  width: 700px;
+  height: 300px;
+}*/

@@ -1,13 +1,26 @@
 
 
 
-
-
-
 module.exports = {
-  entry: "./hiraganaQuiz.js",
+  context: __dirname,
+  entry: "./hiraganaQuiz.jsx",
   output: {
-  	filename: "./bundle.js"
+    path: "./",
+    filename: "bundle.js"
   },
-  devtool: 'source-map',
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['react', 'es2015']
+        }
+      }
+    ]
+  },
+  resolve: {
+    extensions: ["", ".js", ".jsx" ]
+  }
 };
