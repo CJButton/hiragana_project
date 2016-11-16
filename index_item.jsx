@@ -20,9 +20,10 @@ export default class IndexItem extends React.Component {
 
   // gets called when the student enters a correct answer, or wishes to skip
   updateCharacterShown() {
-    incrementGroup = this.state.letterGroup += 1
+    let incrementGroup = this.state.letterGroup += 1
     this.setState({
-      letterGroup: incrementGroup
+      letterGroup: incrementGroup,
+      theGuess: ""
     });
   }
 
@@ -38,21 +39,34 @@ export default class IndexItem extends React.Component {
     return e => this.setState({[property]: e.target.value})
   }
 
-  // when user presses enter, checks answer in props
-  handleGuess() {
+  handleMistake() {
 
+  }
+
+  // when user presses enter, checks answer in props
+  handleGuess(e) {
+    e.preventDefault();
+    if (this.state.theGuess === this.props.items[this.state.letterGroup].eChar) {
+      this.updateCharacterShown();
+    } else {
+      return false
+    };
+  }
+
+  setValue() {
+    document.getElementByClassName("index-item-submit").reset();
   }
 
   render() {
     return(
       <div>
         <div>
-          "Letter goes here"
+          "Character goes here"
             {this.props.items[this.state.letterGroup].jChar}
         </div>
         <form onSubmit={this.handleGuess}>
-          <input type="text" value="What is the romaji?" onChange={this.update("theGuess")}  />
-          <input type="submit" value="Enter"/>
+          <input type="text" placeholder="Enter your guess" onChange={this.update("theGuess")}  />
+          <input className="index-item-submit" type="submit" onClick={this.setValue} value="">Enter</input>
         </form>
       </div>
     );
