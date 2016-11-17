@@ -13,43 +13,49 @@ export default class IndexItem extends React.Component {
       charGroup: 1,
       theGuess: "",
       errors: "",
-      imgClass: ""
+      imgClass: "",
+      imgItem: "item-img",
     };
+
     this._showNextComponent = this._showNextComponent.bind(this);
     this.update = this.update.bind(this);
     this.handleGuess = this.handleGuess.bind(this);
     this.handleMistake = this.handleMistake.bind(this);
+    this.arrowsShow = this.arrowsShow.bind(this);
   }
 
   // gets called when the student enters a correct answer, or wishes to skip
   updateCharacterShown() {
+    console.log(this.state.charGroup);
     if (this.state.charGroup === 5) {
       this._showNextComponent();
+      this.arrowsShow();
     } else {
     let incrementGroup = this.state.charGroup += 1;
     this.setState({
         charGroup: incrementGroup,
-        theGuess: "",
-        value: ""
+        theGuess: ""
       });
     }
   }
+
+  arrowsShow() {
+      console.log("in arrowsShow");
+  }
+
   _showNextComponent() {
-    console.log(this.state.value);
     this.setState({
       showIndex: true,
-      imgClass: "dpnone",
+      imgItem: "item-img2"
     });
   }
 
   // updates the state with the currently entered input
   update(property) {
-    console.log(this.state.theGuess);
     return e => this.setState({[property]: e.target.value});
   }
 
   handleMistake() {
-    console.log("in handleMistake");
     if (this.state.errors !== ""){
     return (
       <ul>
@@ -62,7 +68,7 @@ export default class IndexItem extends React.Component {
   handleGuess(e) {
     e.preventDefault();
 
-    if (this.state.theGuess === this.props.items[this.state.charGroup].eChar) {
+    if (this.state.theGuess === this.props.items[this.props.items.kanaClass][this.state.charGroup].eChar) {
       this.setState({errors: ""});
       this.updateCharacterShown();
     } else {
@@ -75,7 +81,7 @@ export default class IndexItem extends React.Component {
     return(
       <div>
         <div className={this.state.imgClass}>
-            <img src={this.props.items[this.state.charGroup].jChar} className="item-img"/>
+            <img src={this.props.items[this.props.items.kanaClass][this.state.charGroup].jChar} className={this.state.imgItem}/>
         </div>
         <form onSubmit={this.handleGuess}>
 
@@ -87,6 +93,7 @@ export default class IndexItem extends React.Component {
                <button type="submit">Submit answer</button>
         </form>
         {this.handleMistake()}
+        {this.arrowsShow()}
       </div>
     );
   }

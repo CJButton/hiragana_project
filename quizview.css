@@ -56,12 +56,20 @@ body {
   width: 200px;
 }
 
+.item-img2 {
+  margin-top: 50px;
+  margin-left: 400px;
+  width: 200px;
+  filter: blur(4px);
+}
 .index-img {
   width: 75px;
 }
 
 .index-body {
 }
+
+
 
 .dpnone {
   display: none;
