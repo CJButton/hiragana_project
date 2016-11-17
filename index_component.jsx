@@ -35,24 +35,29 @@ export default class IndexComponent extends React.Component {
               <th className="index-pro">Pronunciation</th>
             </tr>
             <tr className="index-th-elements">
-              <th>{this.props.items[1].jChar}</th>
-              <th>{this.props.items[1].eChar}</th>
-              <th>{this.props.items[1].pChar}</th>
+              <th><img src={this.props.kana[1][1].jChar} className="index-img"/></th>
+              <th>{this.props.kana[1][1].eChar}</th>
+              <th>{this.props.kana[1][1].pChar}</th>
             </tr>
             <tr className="index-th-elements">
-              <th>{this.props.items[2].jChar}</th>
-              <th>{this.props.items[2].eChar}</th>
-              <th>{this.props.items[2].pChar}</th>
+              <th><img src={this.props.kana[1][2].jChar}className="index-img"/></th>
+              <th>{this.props.kana[1][2].eChar}</th>
+              <th>{this.props.kana[1][2].pChar}</th>
             </tr>
             <tr className="index-th-elements">
-              <th>{this.props.items[3].jChar}</th>
-              <th>{this.props.items[3].eChar}</th>
-              <th>{this.props.items[3].pChar}</th>
+              <th><img src={this.props.kana[3].jChar}className="index-img"/></th>
+              <th>{this.props.kana[3].eChar}</th>
+              <th>{this.props.kana[3].pChar}</th>
             </tr>
             <tr className="index-th-elements">
-              <th>{this.props.items[4].jChar}</th>
-              <th>{this.props.items[4].eChar}</th>
-              <th>{this.props.items[4].pChar}</th>
+              <th><img src={this.props.kana[4].jChar}/></th>
+              <th>{this.props.kana[4].eChar}</th>
+              <th>{this.props.kana[4].pChar}</th>
+            </tr>
+            <tr className="index-th-elements">
+              <th><img src={this.props.kana[5].jChar}/></th>
+              <th>{this.props.kana[5].eChar}</th>
+              <th>{this.props.kana[5].pChar}</th>
             </tr>
           </tbody>
         </table>

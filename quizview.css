@@ -23,19 +23,41 @@
   margin-bottom: 0px;
   bottom: 135px;
 }*/
-
+body {
+  background-color: black;
+  font-family: 'Roboto', sans-serif;
+}
 
 
 .indexTable {
+  padding-left: 75px;
   color: black;
   background-color: none;
   width: 740px;
   height: 350px;
 }
 
+.indexTable th {
+  padding: 0 100px 0 100px;
+}
+
+.index-body {
+  flex: auto;
+}
+
+
 .index-th-elements th {
   font-size: 40px;
-  color: white;
+}
+
+.item-img {
+  margin-top: 50px;
+  margin-left: 400px;
+  width: 200px;
+}
+
+.index-img {
+  width: 75px;
 }
 
 .index-body {
@@ -47,13 +69,14 @@
 
 .mainBox {
   margin-top: 75px;
-  width: 700px;
-  height: 400px;
-  margin-left: 300px;
+  width: 1000px;
+  height: 500px;
+  margin-left: 150px;
   border-radius: 25px;
   border: 1px solid #73AD21;
   padding: 20px;
-  background-image: url("http://res.cloudinary.com/ddbfkqb9m/image/upload/v1479193218/manga%20covers/shodo.jpg");
+  background-image: url("http://res.cloudinary.com/ddbfkqb9m/image/upload/v1479354335/shodo4_yn41rb.png");
+  background-size: 100%
 }
 /*
 .mainBody {
