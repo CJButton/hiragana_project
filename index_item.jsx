@@ -8,16 +8,16 @@ export default class IndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      kana: this.props.items,
       showIndex: false,
       arrowClass: "",
       charGroup: 1,
       theGuess: "",
       errors: "",
       imgClass: "",
-      imgItem: "item-img"
+      imgItem: "item-img",
+      kanaClass: this.props.items.kanaClass
     };
-    console.log(this.state);
+
     console.log(this.props);
     this._showNextComponent = this._showNextComponent.bind(this);
     this.update = this.update.bind(this);
@@ -32,7 +32,7 @@ export default class IndexItem extends React.Component {
       this._showNextComponent();
       this.setState({
         showIndex: true
-      })
+      });
     } else {
     let incrementGroup = this.state.charGroup += 1;
     this.setState({
@@ -42,20 +42,15 @@ export default class IndexItem extends React.Component {
     }
   }
 
-  _nextCharGroup() {
-    this.setState({
-      kanaClass: 2
-    });
+  nextCharacters() {
+
   }
 
   arrowsShow1() {
     // next exam
     if (this.state.imgItem === "item-img2") {
     return (
-      <div>
-      <button className={this.state.arrowClass} onClick={this._nextCharGroup}>Next</button>
-        {this.state.showIndex? <IndexItem kana={this.state}/> : null }
-      </div>
+      <button className={this.state.arrowClass} onClick={() => this.setState({kanaClass: 2})}>Next</button>
       );
     }
   }
@@ -69,10 +64,17 @@ export default class IndexItem extends React.Component {
     }
   }
 
+  tester() {
+    console.log(this.state);
+  }
+
   _showNextComponent() {
     this.setState({
-      imgItem: "item-img2"
+      imgItem: "item-img2",
+
     });
+
+    this.tester();
   }
 
   // updates the state with the currently entered input

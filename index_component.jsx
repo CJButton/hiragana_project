@@ -12,6 +12,7 @@ export default class IndexComponent extends React.Component {
       showIndex: false,
       buttonClass: ""
     };
+    console.log(this.props);
     this._showNextComponent = this._showNextComponent.bind(this);
   }
 
