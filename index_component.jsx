@@ -24,9 +24,9 @@ export default class IndexComponent extends React.Component {
         let kanaKeys = Object.keys(this.props.kana[indexKey])
         kanaKeys.map((index) => {
             let el = this.props.kana[indexKey][index] // element 1 in the object
-            let jTarget = document.getElementsByClassName(`index-img-${index}`)[0]
-            let eTarget = document.getElementsByClassName(`index-eChar-${index}`)[0]
-            let pTarget = document.getElementsByClassName(`index-pChar-${index}`)[0]
+            let jTarget = document.getElementsByClassName(`index-img-${index}`)[0];
+            let eTarget = document.getElementsByClassName(`index-eChar-${index}`)[0];
+            let pTarget = document.getElementsByClassName(`index-pChar-${index}`)[0];
 
             jTarget.src = el.jChar
             eTarget.innerHTML = el.eChar
@@ -41,7 +41,7 @@ export default class IndexComponent extends React.Component {
   }
 
   tableContent() {
-    let indexKey = this.props.kana.kanaClass
+    let indexKey = this.props.kana.kanaClass;
     let kanaKeys = Object.keys(this.props.kana[indexKey]) //array of all the keys in the class
     console.log("insideTableFunction");
     return (
@@ -56,7 +56,7 @@ export default class IndexComponent extends React.Component {
       ))}
 
     </tbody>
-    )
+  );
   }
 
   tableRow(el) {
@@ -66,22 +66,22 @@ export default class IndexComponent extends React.Component {
       <th className={`index-eChar-${el}`}>{el.eChar}</th>
       <th className={`index-pChar-${el}`}>{el.pChar}</th>
     </tr>
-    )
+  );
   }
 
   _showNextComponent() {
-    let targetEls = document.getElementsByClassName("indexStuff")
-    let targetItems = document.getElementsByClassName("indexRender")
-    targetEls[0].classList.add("dpnone")
-    targetEls[1].classList.add("dpnone")
+    let targetEls = document.getElementsByClassName("indexStuff");
+    let targetItems = document.getElementsByClassName("indexRender");
+    targetEls[0].classList.add("dpnone");
+    targetEls[1].classList.add("dpnone");
     this.setState({
       showIndex: true
     });
   }
 
   render() {
-    console.log("Parent render", this.props);
-    console.log(this.props.kana[this.props.kana.kanaClass][1].eChar);
+    // console.log("Parent render", this.props);
+    // console.log(this.props.kana[this.props.kana.kanaClass][1].eChar);
     return(
       <div>
         <div>

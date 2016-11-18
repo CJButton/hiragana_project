@@ -2,23 +2,15 @@
 
 import React from 'react';
 import IndexComponent from './index_component';
+import Quizview from './QuizView';
 
 
 export default class IndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      buttonClass: "thiswilldisappear",
-      showNextIndex: false,
-      showPreviousIndex: false,
-      arrowClass: "",
-      charGroup: 1,
-      theGuess: "",
-      errors: "",
-      imgClass: "",
-      imgItem: "item-img",
-    };
+    this.state = this.getState();
 
+    this.getState = this.getState.bind(this);
     console.log(this.props);
     this._showNextComponent = this._showNextComponent.bind(this);
     this.update = this.update.bind(this);
@@ -29,12 +21,24 @@ export default class IndexItem extends React.Component {
     this._showNextIndexComponent = this._showNextIndexComponent.bind(this);
   }
 
+  getState() {
+    return {
+      showNextIndex: false,
+      showPreviousIndex: false,
+      arrowClass: "",
+      charGroup: 1,
+      theGuess: "",
+      errors: "",
+      imgClass: "",
+      imgItem: "item-img"
+    };
+  }
+
   updateCharacterShown() {
     if (this.state.charGroup === 5) {
       this._showNextComponent();
       this.setState({
-        showIndex: true,
-        charGroup: 1
+        showIndex: true
       });
     } else {
     let incrementGroup = this.state.charGroup += 1;
@@ -45,18 +49,15 @@ export default class IndexItem extends React.Component {
     }
   }
 
-  componentDidMount() {
-    let targetItems = document.getElementsByClassName("indexRender");
-    targetItems.classList.remove("dpnone");
-  }
-
   _showNextIndexComponent() {
     this.props.kana.kanaClass += 1;
     let targetEls = document.getElementsByClassName("indexStuff");
     targetEls[0].classList.remove("dpnone");
     targetEls[1].classList.remove("dpnone");
+
     let targetItems = document.getElementsByClassName("indexRender");
     targetItems[0].classList.add("dpnone");
+
     this.setState({
       showNextIndex: true,
       charGroup: 1
@@ -77,12 +78,6 @@ export default class IndexItem extends React.Component {
   }
 
   arrowsShow2() {
-    // previous exam
-    if (this.state.imgItem === "item-img2") {
-      return (
-        <p>TesterArrow2</p>
-      );
-    }
   }
 
   tester() {
@@ -126,14 +121,12 @@ export default class IndexItem extends React.Component {
   }
 
   render() {
-    console.log("In index items render");
-    console.log(this.props.kana);
     return(
       <div>
         <div className="indexRender">
         {this.arrowsShow2()}
         <div className={this.state.imgClass}>
-            <img src={this.props.kana[this.props.kana.kanaClass][this.state.charGroup].jChar} className={this.state.imgItem}/>
+            <img src={this.props.kana[this.props.kana.kanaClass][this.state.charGroup].jChar} className="item-img"/>
         </div>
         <form onSubmit={this.handleGuess}>
 
@@ -147,7 +140,6 @@ export default class IndexItem extends React.Component {
         {this.handleMistake()}
         {this.arrowsShow1()}
         </div>
-        <p>"Does this remain?"</p>
       </div>
     );
   }
