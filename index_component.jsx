@@ -1,5 +1,5 @@
 
-import { Router, Route, Link } from 'react-router'
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -93,7 +93,7 @@ export default class IndexComponent extends React.Component {
         </table>
         </div>
           <div>
-            <button className="indexStuff" onClick={this._showNextComponent}>Let's Practice</button>
+            <button className="indexStuff" id="practiceButton" onClick={this._showNextComponent}>Let's Practice</button>
             {this.state.showIndex ? <IndexItem kana={this.props.kana}/> : null
             }
           </div>

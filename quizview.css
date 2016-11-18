@@ -89,6 +89,46 @@ body {
 margin-left: 300px;
 }
 
+#nextButton {
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  margin-left: 460px;
+  border-radius: 4px;
+  background-color: #FF6300
+}
+
+.entryField {
+  margin-left: 410px;
+}
+
+.submitButton {
+  margin-left: 450px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: #FF6300
+}
+
+#practiceButton {
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  margin-left: 420px;
+  border-radius: 4px;
+  background-color: #FF6300
+}
+
+#startButton {
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  margin-left: 370px;
+  border-radius: 4px;
+  background-color: #FF6300
+}
+
 .quizOneButton {
   border: none;
      padding: 15px 32px;

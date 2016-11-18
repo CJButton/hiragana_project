@@ -69,7 +69,7 @@ export default class IndexItem extends React.Component {
     if (this.state.imgItem === "item-img2") {
     return (
       <div>
-      <button className={this.state.arrowClass} onClick={this._showNextIndexComponent}>Next</button>
+      <button className={this.state.arrowClass} id="nextButton" onClick={this._showNextIndexComponent}>Next</button>
         {this.state.showNextIndex ? <IndexComponent kana={this.props.kana}/> : null
       }
       </div>
@@ -124,6 +124,9 @@ export default class IndexItem extends React.Component {
     return(
       <div>
         <div className="indexRender">
+            <div>
+              What is the correct romaji reading for... ?
+            </div>
         {this.arrowsShow2()}
         <div className={this.state.imgClass}>
             <img src={this.props.kana[this.props.kana.kanaClass][this.state.charGroup].jChar} className="item-img"/>
@@ -131,11 +134,12 @@ export default class IndexItem extends React.Component {
         <form onSubmit={this.handleGuess}>
 
           <input type="text"
+                 className="entryField"
                  placeholder="Enter your guess"
                  value={this.state.theGuess}
                  onChange={this.update("theGuess")}  />
-
-               <button type="submit">Submit answer</button>
+               <br></br>
+               <button className="submitButton" type="submit">Submit</button>
         </form>
         {this.handleMistake()}
         {this.arrowsShow1()}
