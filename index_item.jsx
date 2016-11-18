@@ -8,28 +8,31 @@ export default class IndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      kana: this.props.items,
       showIndex: false,
-      buttonClass: "",
+      arrowClass: "",
       charGroup: 1,
       theGuess: "",
       errors: "",
       imgClass: "",
-      imgItem: "item-img",
+      imgItem: "item-img"
     };
-
+    console.log(this.state);
+    console.log(this.props);
     this._showNextComponent = this._showNextComponent.bind(this);
     this.update = this.update.bind(this);
     this.handleGuess = this.handleGuess.bind(this);
     this.handleMistake = this.handleMistake.bind(this);
-    this.arrowsShow = this.arrowsShow.bind(this);
+    this.arrowsShow1 = this.arrowsShow1.bind(this);
+    this.arrowsShow2 = this.arrowsShow2.bind(this);
   }
 
-  // gets called when the student enters a correct answer, or wishes to skip
   updateCharacterShown() {
-    console.log(this.state.charGroup);
     if (this.state.charGroup === 5) {
       this._showNextComponent();
-      this.arrowsShow();
+      this.setState({
+        showIndex: true
+      })
     } else {
     let incrementGroup = this.state.charGroup += 1;
     this.setState({
@@ -39,13 +42,35 @@ export default class IndexItem extends React.Component {
     }
   }
 
-  arrowsShow() {
-      console.log("in arrowsShow");
+  _nextCharGroup() {
+    this.setState({
+      kanaClass: 2
+    });
+  }
+
+  arrowsShow1() {
+    // next exam
+    if (this.state.imgItem === "item-img2") {
+    return (
+      <div>
+      <button className={this.state.arrowClass} onClick={this._nextCharGroup}>Next</button>
+        {this.state.showIndex? <IndexItem kana={this.state}/> : null }
+      </div>
+      );
+    }
+  }
+
+  arrowsShow2() {
+    // previous exam
+    if (this.state.imgItem === "item-img2") {
+      return (
+        <p>TesterArrow2</p>
+      );
+    }
   }
 
   _showNextComponent() {
     this.setState({
-      showIndex: true,
       imgItem: "item-img2"
     });
   }
@@ -80,6 +105,7 @@ export default class IndexItem extends React.Component {
   render() {
     return(
       <div>
+        {this.arrowsShow2()}
         <div className={this.state.imgClass}>
             <img src={this.props.items[this.props.items.kanaClass][this.state.charGroup].jChar} className={this.state.imgItem}/>
         </div>
@@ -93,7 +119,7 @@ export default class IndexItem extends React.Component {
                <button type="submit">Submit answer</button>
         </form>
         {this.handleMistake()}
-        {this.arrowsShow()}
+        {this.arrowsShow1()}
       </div>
     );
   }

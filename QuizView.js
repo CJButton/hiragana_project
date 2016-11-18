@@ -25,7 +25,7 @@ export default class Quizview extends React.Component {
               },
       kanaClass: 1,
       showIndex: false,
-      buttonClass: "",
+      buttonClass: "startButton",
       score: 0
     };
     this._showNextComponent = this._showNextComponent.bind(this);
