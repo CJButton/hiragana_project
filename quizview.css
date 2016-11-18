@@ -80,6 +80,23 @@ body {
   display: none;
 }
 
+.welcome {
+  margin-left: 400px;
+  margin-top: 75px;
+}
+
+.title {
+margin-left: 300px;
+}
+
+.quizOneButton {
+  border: none;
+     padding: 15px 32px;
+     text-align: center;
+     text-decoration: none;
+     font-size: 16px;
+}
+
 .mainBox {
   margin-top: 75px;
   width: 1000px;

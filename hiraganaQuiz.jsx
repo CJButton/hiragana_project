@@ -5,6 +5,11 @@ import ReactDOM from 'react-dom';
 
 import Quizview from './QuizView';
 
+import { Router, Route, Link } from 'react-router';
+
+
+
+
 
 
 class Root extends React.Component {

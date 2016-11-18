@@ -1,5 +1,5 @@
 
-
+import { Router, Route, Link } from 'react-router'
 import React from 'react';
 
 import IndexComponent from './index_component';
@@ -25,14 +25,12 @@ export default class Quizview extends React.Component {
               },
       kanaClass: 1,
       showIndex: false,
-      buttonClass: "startButton",
-      score: 0
+      buttonClass: "startButton"
     };
     console.log("In quizview again");
     this._showNextComponent = this._showNextComponent.bind(this);
   }
 
-  // this will rerender the current window to the Index
   _showNextComponent() {
     this.setState({
       showIndex: true,
@@ -40,21 +38,25 @@ export default class Quizview extends React.Component {
     });
   }
 
+  _showSecondComponent() {
+    this.setState({
+      showIndex: true,
+    })
+  }
+
   render() {
     return(
         <div>
-        <button className={this.state.buttonClass} onClick={this._showNextComponent}>Begin!</button>
-          {this.state.showIndex ? <IndexComponent kana={this.state}/> :
-          <div>
-
-            <h2>Welcome to</h2>
-            <h1>We're gonna Hiragana!</h1>
+        <button className={this.state.buttonClass} onClick={this._showNextComponent}>Begin Quiz 1!</button>
+          {this.state.showIndex ? <IndexComponent kana={this.state}/> : null }
 
           </div>
-          }</div>
     );
   }
 }
+//
+// <h2 className="welcome">Welcome to</h2>
+// <h1 className="title">We're gonna Hiragana!</h1>
 
 // <Button onClick={this._onButtonClick}>Button</Button>
 //     {this.state.showComponent ?
