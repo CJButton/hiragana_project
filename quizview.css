@@ -28,6 +28,9 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.img {
+  height: 60px;
+}
 
 .indexTable {
   padding-left: 75px;
