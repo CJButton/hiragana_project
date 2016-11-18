@@ -28,6 +28,7 @@ export default class Quizview extends React.Component {
       buttonClass: "startButton",
       score: 0
     };
+    console.log("In quizview again");
     this._showNextComponent = this._showNextComponent.bind(this);
   }
 

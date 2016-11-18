@@ -1,23 +1,24 @@
 
 
 import React from 'react';
-
+import IndexComponent from './index_component';
 
 
 export default class IndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showIndex: false,
+      buttonClass: "thiswilldisappear",
+      showNextIndex: false,
+      showPreviousIndex: false,
       arrowClass: "",
       charGroup: 1,
       theGuess: "",
       errors: "",
       imgClass: "",
       imgItem: "item-img",
-      kanaClass: this.props.items.kanaClass
     };
-
+    // this.props.kana.kanaClass = 2;
     console.log(this.props);
     this._showNextComponent = this._showNextComponent.bind(this);
     this.update = this.update.bind(this);
@@ -25,6 +26,7 @@ export default class IndexItem extends React.Component {
     this.handleMistake = this.handleMistake.bind(this);
     this.arrowsShow1 = this.arrowsShow1.bind(this);
     this.arrowsShow2 = this.arrowsShow2.bind(this);
+    this._showNextIndexComponent = this._showNextIndexComponent.bind(this);
   }
 
   updateCharacterShown() {
@@ -42,15 +44,26 @@ export default class IndexItem extends React.Component {
     }
   }
 
-  nextCharacters() {
-
+  _showNextIndexComponent() {
+    console.log(this.props);
+    this.props.kana.kanaClass += 1;
+    let targetDiv = document.getElementById("indexHider");
+    targetDiv.className="dpshow";
+    this.setState({
+      showNextIndex: true,
+      buttonClass: "dpnone"
+      });
   }
 
   arrowsShow1() {
     // next exam
     if (this.state.imgItem === "item-img2") {
     return (
-      <button className={this.state.arrowClass} onClick={() => this.setState({kanaClass: 2})}>Next</button>
+      <div>
+      <button className={this.state.arrowClass} onClick={this._showNextIndexComponent}>Next</button>
+        {this.state.showNextIndex ? <IndexComponent kana={this.props.kana}/> : null
+      }
+      </div>
       );
     }
   }
@@ -95,7 +108,7 @@ export default class IndexItem extends React.Component {
   handleGuess(e) {
     e.preventDefault();
 
-    if (this.state.theGuess === this.props.items[this.props.items.kanaClass][this.state.charGroup].eChar) {
+    if (this.state.theGuess === this.props.kana[this.props.kana.kanaClass][this.state.charGroup].eChar) {
       this.setState({errors: ""});
       this.updateCharacterShown();
     } else {
@@ -107,9 +120,10 @@ export default class IndexItem extends React.Component {
   render() {
     return(
       <div>
+        <div className={this.state.buttonClass}>
         {this.arrowsShow2()}
         <div className={this.state.imgClass}>
-            <img src={this.props.items[this.props.items.kanaClass][this.state.charGroup].jChar} className={this.state.imgItem}/>
+            <img src={this.props.kana[this.props.kana.kanaClass][this.state.charGroup].jChar} className={this.state.imgItem}/>
         </div>
         <form onSubmit={this.handleGuess}>
 
@@ -122,6 +136,8 @@ export default class IndexItem extends React.Component {
         </form>
         {this.handleMistake()}
         {this.arrowsShow1()}
+        </div>
+        <p>"Does this remain?"</p>
       </div>
     );
   }
