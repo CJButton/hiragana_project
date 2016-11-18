@@ -1,16 +1,35 @@
 
 
-- ran into an error causing the entire page to refresh. it would only
- occur after the user submitted a form. had me stumped for a while, as I
- had never run into something like this before. After doing some searching,
- I came to the realization that I forgot to add a e.preventDefault()! So simple!
 
-- an issue with getting the index page to disappear entirely so that we could
-  start quizzing. The CSS was hiding either everything or nothing! The answer
-  to this was more divs! By restructuring what the css hider affected, I was
-  able to remove the index page, and then JUST have the quiz page appear.
 
-- learned a lot about getting images to change sizes! turns out all we have to
-  do is say height: 25px ON the image src, and not the tag container for the img
 
-- how do we create dropdowns? should I just use someone elses?
+
+
+
+
+We're gonna Hiragana!
+
+"We're gonna Hiragana" is a javascript application utilizing react, react-router, and
+redux.
+
+Features and Implementation
+
+The main purpose of the site it to allow users to study and practice typing romaji. On
+entry to the site, they are given a short introduction, and then asked to click a button
+where the practice can begin.
+
+There is a table filled out with three columns, displaying the hiragana character, the
+romaji (spelling using a keyboard), and the pronunciation. Users are to spend a few minutes
+studying this. When they feel comfortable, they click the button to begin practice.
+
+When clicked, the page is hidden from view using CSS display: none, and is replaced with a child
+component. This child component displays one character at a time, asking the user for the
+correct romaji answer. When the user answers, the submission is checked against the state. The
+state contains several objects, and within these objects is three key:value pairs. Only one object is
+ever on display at a time, thus making checking answers relatively straightforward. The character
+seen on screen has a sibling key pointing to the correct romaji. When the user inputs their answer,
+it is compared against the romaji value. If they match, then the user was correct.
+
+After successfully answering all of the questions, the user is directed to another list of characters
+where they can continue studying. This cycle continues until the user feels confident in their
+abilities.
